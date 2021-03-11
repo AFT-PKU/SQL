@@ -6,7 +6,7 @@
 
 &emsp;&emsp;这个项目记录了北京大学AFT协会对《SQL基础教程》第2版的学习笔记，同时也特别感谢Master_lisa为本书录制的[学习视频](https://www.bilibili.com/video/av62315714)
 
-&emsp;&emsp;这个项目记录了北京大学AFT协会对《SQL基础教程》第2版的学习笔记，同时也特别感谢Master_lisa为本书录制的[学习视频](https://www.bilibili.com/video/av62315714)
+&emsp;&emsp;除了《SQL基础教程》第2版之外，我们也推荐其他一些学习资料：[《MySQL必知必会》](《MySQL必知必会》.pdf)，[W3school SQL教程](https://www.w3school.com.cn/sql/index.asp)，[哈佛CS50](https://b23.tv/KeJnxS)
 
 >GitHub的markdown不再支持tex公式的解析显示，使用Chrome的同学可以安装[GitHub with MathJax](https://chrome.google.com/webstore/detail/github-with-mathjax/ioemnmodlmafdkllaclgeombjnmnbima)添加MathJax的解析以对公式正常显示。
 
