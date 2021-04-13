@@ -80,7 +80,7 @@
 
 还有很多同学提出了不少建议，我们都列在此处。
 
-@CharlieSCC ...
+@CharlieSCC  @jiangxunmu ...
 
 如有遗漏，请务必通知我们，可以发邮件至`pkuscc@stu.pku.edu.cn`。
 这是我们必须要感谢的，所以不要不好意思。
