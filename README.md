@@ -14,7 +14,7 @@
 
 ## 目录
 
-1. [绪论——搭建SQL的学习环境]()
+1. [绪论——搭建SQL的学习环境](https://github.com/AFT-PKU/SQL/tree/main/%E7%BB%AA%E8%AE%BA%E2%80%94%E2%80%94%E6%90%AD%E5%BB%BASQL%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83)
     1. [PostgreSQL的安装和连接设置]()
     1. [通过PostgreSQL执行SQL语句]()
 1. [数据库和SQL]()
