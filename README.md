@@ -15,23 +15,23 @@
 ## 目录
 
 1. [绪论——搭建SQL的学习环境](https://github.com/AFT-PKU/SQL/tree/main/%E7%BB%AA%E8%AE%BA%E2%80%94%E2%80%94%E6%90%AD%E5%BB%BASQL%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83)
-    1. [PostgreSQL的安装和连接设置]()
-    1. [通过PostgreSQL执行SQL语句]()
+    1. PostgreSQL的安装和连接设置
+    1. 通过PostgreSQL执行SQL语句
 1. [数据库和SQL](https://github.com/AFT-PKU/SQL/tree/main/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CSQL)
-    1. [数据库是什么]()
-    1. [数据库的结构]()
-    1. [SQL概要]()
-    1. [表的创建]()
-    1. [表的删除和更新]()
+    1. 数据库是什么
+    1. 数据库的结构
+    1. SQL概要
+    1. 表的创建
+    1. 表的删除和更新
 1. [查询基础](https://github.com/AFT-PKU/SQL/tree/main/%E6%9F%A5%E8%AF%A2%E5%9F%BA%E7%A1%80)
-    1. [SELECT语句基础]()
-    1. [算术运算符和比较运算符]()
-    1. [逻辑运算符]()
+    1. SELECT语句基础
+    1. 算术运算符和比较运算符
+    1. 逻辑运算符
 1. [聚合排序](https://github.com/AFT-PKU/SQL/tree/main/%E8%81%9A%E5%90%88%E4%B8%8E%E6%8E%92%E5%BA%8F)
-    1. [对表进行聚合查询]()
-    1. [对表进行分组]()
-    1. [为聚合结果指定条件]()
-    1. [对查询结果进行排序]()
+    1. 对表进行聚合查询
+    1. 对表进行分组
+    1. 为聚合结果指定条件
+    1. 对查询结果进行排序
 1. [数据更新]()
     1. [数据的插入（INSERT语句的使用方法）]()
     1. [数据的删除（DELETE语句的使用方法）]()
