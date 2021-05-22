@@ -205,15 +205,16 @@ SELECT product_type, SUM(sale_price)
 ### 4.CUBE——用数据来搭积木
 CUBE 的语法和 ROLLUP 相同，只需要将 ROLLUP 替换为 CUBE  
 **代码**  
+
 SELECT CASE WHEN GROUPING(product_type) = 1  
-  THEN '商品种类 合计'  
-  ELSE product_type END AS product_type,  
-  CASE WHEN GROUPING(regist_date) = 1  
-  THEN '登记日期 合计'  
-  ELSE CAST(regist_date AS VARCHAR(16)) END AS regist_date,  
-  SUM(sale_price) AS sum_price  
-  FROM Product  
-  GROUP BY CUBE(product_type, regist_date)  
+   THEN '商品种类 合计'  
+   ELSE product_type END AS product_type,  
+   CASE WHEN GROUPING(regist_date) = 1  
+   THEN '登记日期 合计'  
+   ELSE CAST(regist_date AS VARCHAR(16)) END AS regist_date,  
+   SUM(sale_price) AS sum_price  
+   FROM Product  
+   GROUP BY CUBE(product_type, regist_date)  
  *输出结果*
 
 
@@ -233,6 +234,7 @@ GROUPING SETS可以用于从 ROLLUP 或者 CUBE 的结果中取出部分记录�
 例如，之前的 CUBE 的结果就是根据聚合键的所有可能的组合计算而来的。如果希望从中选取出将“商品种类”和“登记日期”各自作为聚合键的结果，或者不想得到“合计记录和使用 2 个聚合键的记录”时，可以使用 GROUPING SETS。  
 
 **代码**  
+
 SELECT CASE WHEN GROUPING(product_type) = 1  
     THEN '商品种类 合计'  
     ELSE product_type END AS product_type,  
