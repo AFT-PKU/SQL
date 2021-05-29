@@ -10,7 +10,7 @@ def build_db(file_name):
         return 0
     data = pd.read_csv(file_name)
     df = pd.DataFrame(data)
-
+    
     db = sqlite3.connect('students.db')
     cursor = db.cursor()
     for i in range(df.shape[0]):
@@ -25,7 +25,7 @@ def build_db(file_name):
         elif len(name) == 3:
             middle_ = name[1]
             last_ = name[2]
-
+        # 执行插入语句
         cursor.execute("INSERT INTO students (first,middle,last,house,birth) VALUES (?,?,?,?,?) ",[first_,middle_,last_,house_,birth_])
     db.commit()
     db.close()
