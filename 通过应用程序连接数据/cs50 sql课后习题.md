@@ -3,7 +3,7 @@
 
 * cs50 sql一讲的习题总共分为两个部分：（链接中有详细的题目说明与所需文件）
 * 1、关于sql语言的运用，熟悉sql语法的运用，题目链接：https://cs50.harvard.edu/summer/2020/psets/7/movies/ 
-* 2、关于使用python链接数据库进行一些简单的操作，题目链接：https://cs50.harvard.edu/summer/2020/psets/7/houses/
+* 2、关于使用python连接数据库进行一些简单的操作，题目链接：https://cs50.harvard.edu/summer/2020/psets/7/houses/
 * 第一题共13小问，每一小问的要求是根据相应的查询需求写出对应sql语句，所使用的为movies.db文件。答案放在下方：
 ```
 1、select title from movies 
