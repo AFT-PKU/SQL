@@ -78,5 +78,5 @@ where title in (SELECT title from people
 	JOIN movies ON stars.movie_id = movies.id 
 	WHERE name = 'Kevin Bacon' and birth = 1958) AND (people.name != 'Kevin Bacon');
 ```
-* 第二题是关于使用python调用数据库的，其中两个小问，第一个小问是将characters.csv文件中的数据读入到studens.db中去，代码放在import.py中，第二个小问是将students.db中的数据按照一定的查询要求和格式读出来，代码放在roster.py中。
+* 第二题是关于使用python调用数据库，有两个小问，第一个小问是写import.py将characters.csv文件中的数据读入到studens.db中去，第二个小问是写roster.py将students.db中的数据按照一定的查询要求和格式读出来。
 
