@@ -1,0 +1,113 @@
+# matlab连接mysql（JDBC)
+
+---
+
+## 第一步
+
+**安装驱动**  https://www.mathworks.com/products/database/driver-installation.html
+
+## 第二步
+
+### 使用数据库资源管理器应用程序设置数据源
+
+1. 通过点击MATLAB®工具条上的"应用程序"选项卡来打开数据库资源管理器应用程序。然后，在应用程序部分的右侧，单击显示更多箭头以打开应用程序库。在数据库连接和报告下，点击数据库资源管理器。或者，在命令行中输入databaseExplorer。
+2. 在数据源部分，选择配置数据源>配置JDBC数据源。
+3. 在 "名称 "框中，输入你的数据源的名称。
+4. 从供应商列表中，选择MySQL。
+5. 在驱动位置框中，输入JDBC驱动文件的完整路径。
+6. 在数据库框中，输入你的数据库的名称。在服务器框中，输入你的数据库服务器的名称。请咨询你的数据库管理员，了解你的数据库服务器的名称。在端口号框中，输入端口号。
+7. 在 "连接选项 "下，在"名称"栏中，输入一个额外的特定驱动程序选项的名称。然后，在 "值 "栏中，输入特定驱动程序选项的值。点击加号 "+"来指定额外的驱动程序特定选项。
+8. 单击 "测试"。测试连接"对话框打开。输入你的数据库的用户名和密码，如果你的数据库不需要这些，则将这些框留空。点击测试。
+如果你的连接成功了，数据库资源管理器对话框显示一条信息，表明连接成功了。否则，它会显示一条错误信息。
+9. 单击保存。JDBC数据源配置对话框显示一条消息，表明数据源已成功保存。关闭此对话框。
+
+### 使用命令行设置数据源
+
+1. 为MySQL数据库创建一个JDBC数据源。
+
+```
+  vendor = "MySQL";
+  opts = databaseConnectionOptions("jdbc",vendor);
+```
+
+2. 设置JDBC连接选项。例如，这段代码假设你连接到一个名为MySQL的JDBC数据源，JDBC驱动文件的完整路径为C:\Drivers\mysql-connector-java-5.1.34-bin.jar，数据库名称为toystore_doc，数据库服务器dbtb01，端口号为3306。
+```
+opts = setoptions(opts, ...
+    'DataSourceName',"MySQL", ...
+    'JDBCDriverLocation',"C:\Drivers\mysql-connector-java-5.1.34-bin.jar", ...
+    'DatabaseName',"toystore_doc",'Server',"dbtb01", ...
+    'PortNumber',3306);
+```
+
+3.通过指定用户名username和密码pwd来测试数据库连接，如果你的数据库不需要这些参数，可以把这些参数留空。
+
+```
+username = "username";
+password = "pwd";
+status = testConnection(opts,username,password);
+```
+
+4.保存JDBC数据
+```
+saveAsDataSource(opts)
+```
+
+## 第三步
+
+###使用JDBC驱动连接到mysql
+1. 使用已配置的JDBC数据源、用户名username和密码pwd连接MySQL数据库。
+
+```
+datasource = "MySQL";
+username = "username";
+password = "pwd";
+conn = database(datasource,username,password);
+
+```
+
+2.关闭数据连接
+
+```
+close(conn)
+```
+
+#matlab连接数据库实例
+
+**连接数据库**
+
+**创建SQL statement**
+创建一个SQL statement，使用JDBC数据库连接从SQL Server数据库导入数据。SELECT SQL语句中的问号表明它是一个SQL准备语句。该语句从数据库表 productTable 中选择指定产品描述的所有数据。
+
+```
+query = strcat("SELECT * FROM productTable ", ...
+    "WHERE productDescription = ?");
+pstmt = databasePreparedStatement(conn,query);
+```
+
+
+**执行SQL statement**
+
+在SQL准备好的语句中使用其数字索引选择单一参数。指定要绑定的值为一个包含三个产品描述的字符串数组：train set、engine kit 和slinky。
+
+```
+selection = [1];
+values = ["Train Set" "Engine Kit" "Slinky"];
+```
+
+在SQL准备语句中绑定参数值。使用for循环，绑定每个产品描述的值，并使用绑定的参数值从数据库中导入数据。结果包含一个有三行数据的表，用于指定产品描述的产品。
+
+
+```
+for i = 1:3
+    pstmt = bindParamValues(pstmt,selection,values(i));
+    results(i,:) = fetch(conn,pstmt);
+end
+results
+```
+
+
+productNumber|stockNumber|supplierNumber|unitCost|productDescription
+--|:--:|--:
+8| 2.1257e+05| 1001| 5|{'Train Set' } 
+7| 3.8912e+05|1007|16|{'Engine Kit'} 
+3| 4.01e+05|1009|17|{'Slinky'    } 
